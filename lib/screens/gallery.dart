@@ -1,0 +1,41 @@
+import 'dart:html';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
+
+class GalleryView extends StatelessWidget {
+  GalleryView({super.key});
+
+  List imagList = [
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUT0yVuLc2EQd3Z5nYJdONgNRWIEF-m1pw_Q&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4zkShieXZzdQpmqRXFQKTgVz9BSib3w0oGUDL9NC62TO5BVGECwMMicMja1OYdvq7eWI&usqp=CAU',
+    'https://i.pinimg.com/originals/76/db/3d/76db3de1931e9ff93aedda6fcc1da49a.jpg',
+    'https://w0.peakpx.com/wallpaper/402/486/HD-wallpaper-squid-game-red-series-netflix-thumbnail.jpg',
+    'https://c4.wallpaperflare.com/wallpaper/449/429/294/poster-stranger-things-netflix-wallpaper-preview.jpg',
+    'https://wallpapers.com/images/featured/69qiv32a2ee7t57l.jpg',
+    'data:image/png;base64,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',
+    'https://wallpaperaccess.com/full/781822.jpg'
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
+          padding: EdgeInsets.all(8),
+          child: GridView.builder(
+            itemCount: imagList.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3, crossAxisSpacing: 10, mainAxisExtent: 10),
+              itemBuilder: (context, index) {
+                return Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                          image: NetworkImage(imagList[index]),
+                          fit: BoxFit.cover)),
+                );
+              })),
+    );
+  }
+}
